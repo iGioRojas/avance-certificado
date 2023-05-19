@@ -75,14 +75,14 @@ const Formulario = () => {
           <p>En esta sección ingresa los datos de la persona a quien va dirigido el certificado de honorabilidad</p>
         </div>
         
-        <div id="firstForm" className="grid grid-cols-2 grid-rows-2 mb-7 gap-4">
+        <div id="firstForm" className="grid grid-cols-2 grid-rows-2 mb-7 gap-4 max-sm:grid-cols-1">
           <section>
             <label htmlFor="NombreDestino" className='font-bold'>Nombres y Apellidos</label><br />
             <input className='border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="text" name="NombreDestino" id="NombreDestino" value={nombreDestino} onChange={handleNombreDestinoChange} />
           </section>
           <section>
             <label htmlFor="CedulaDestino" className='font-bold'>Cédula de identidad</label><br />
-            <input className='border border-gray-400 px-1 py-2 rounded-md w-full mt-2' type="text" name="CedulaDestino" id="CedulaDestino" value={cedulaDestino} onChange={handleCedulaDestinoChange}/>
+            <input className='border border-gray-400 px-1 py-2 rounded-md w-full mt-2 max-sm:w-4/5' type="text" name="CedulaDestino" id="CedulaDestino" value={cedulaDestino} onChange={handleCedulaDestinoChange}/>
 
           </section>
           <section>
@@ -97,14 +97,14 @@ const Formulario = () => {
           <p>Ingresa los datos de la persona que certifica</p>
       </div>
 
-      <div id="secondForm" className="grid grid-cols-2 grid-rows-3 gap-4">
+      <div id="secondForm" className="grid grid-cols-2 grid-rows-3 gap-4 max-sm:grid-cols-1">
         <section>
           <label htmlFor="NombreFirma" className='font-bold'>Nombres y Apellidos</label><br />
           <input className='border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="text" name="NombreFirma" id="NombreFirma" value={nombreFirma} onChange={handleNombreFirmaChange} />
         </section>
         <section>
         <label htmlFor="CedulaFirma" className='font-bold'>Cédula de identidad</label><br />
-          <input className='border border-gray-400 px-1 py-2 rounded-md w-full mt-2' type="text" name="CedulaFirma" id="CedulaFirma" value={cedulaFirma} onChange={handleCedulaFirmaChange}/>
+          <input className='border border-gray-400 px-1 py-2 rounded-md w-full mt-2 max-sm:w-4/5' type="text" name="CedulaFirma" id="CedulaFirma" value={cedulaFirma} onChange={handleCedulaFirmaChange}/>
         </section>
         <section>
           <label htmlFor="Empresa" className='font-bold'>Empresa</label><br />
@@ -112,7 +112,7 @@ const Formulario = () => {
         </section>
         <section>
         <label htmlFor="Cargo" className='font-bold'>Cargo</label><br />
-          <input className='border border-gray-400 px-1 py-2 rounded-md w-full mt-2' type="text" name="Cargo" id="Cargo" value={cargo} 
+          <input className='border border-gray-400 px-1 py-2 rounded-md w-full mt-2 max-sm:w-4/5' type="text" name="Cargo" id="Cargo" value={cargo} 
           onChange={handleCargoChange}/>
         </section>
         <section>

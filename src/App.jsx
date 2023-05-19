@@ -8,8 +8,9 @@ import Formulario from './Formulario';
 import Previsualizacion from './Previsualizacion';
 
 function App() {
+  //basename={process.env.PUBLIC_URL}
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router >
         <Routes>
             <Route exact path="/" element={<Formulario/>} />
             <Route path="/previsualizar" element={<Previsualizacion/>} />
