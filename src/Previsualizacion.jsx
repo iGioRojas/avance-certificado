@@ -2,7 +2,7 @@ import { useLocation , Link} from "react-router-dom";
 import html2pdf from 'html2pdf.js';
 
 const Previsualizar = (props) => {
-  const plantillaCertificado = `<div id="certificado" style="width: 800px; margin:0 auto; padding: 30px;">
+  const plantillaCertificado = `<div id="certificado" style="width: 700px; margin:0 auto; padding: 30px;">
                                 <div style="text-align:right">%%FECHA_ACTUAL%%</div>
                                 <p style="text-align:center;font-weight:bold;font-size:32px;margin-top:12px">CERTIFICADO DE HONORABILIDAD</p>
                                 <p style="text-align:center; margin:15px 0">A petición verbal de la parte interesada, en debida y legal forma,</p>
