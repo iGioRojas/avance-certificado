@@ -13,7 +13,7 @@ function App() {
     <Router >
         <Routes>
             <Route exact path="/" element={<Formulario/>} />
-            <Route path="/previsualizar" element={<Previsualizacion/>} />
+            <Route path="/generar-certificado-honorabilidad/previsualizar" element={<Previsualizacion/>} />
             <Route path="*" element={<Formulario/>} />
         </Routes>
     </Router>

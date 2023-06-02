@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom';
-
+import AdsComponent from './AdsComponent';
 import './Formulario.css'
 
 const Formulario = () => {
@@ -43,19 +43,6 @@ const Formulario = () => {
     const handleTelefonoChange = (event) => {
       setTelefono(event.target.value);
     };
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      // Aquí puedes hacer algo con los valores del formulario, como enviarlos a un servidor
-      console.log('Nombre:', nombreDestino);
-      console.log('Cedula:', cedulaDestino);
-      console.log('Años:', yearsDestino);
-      console.log('Cedula:', cedulaFirma);
-      console.log('Nombre:', nombreFirma);
-      console.log('Empresa:', empresa);
-      console.log('Cargo:', cargo);
-      console.log('Telefono',telefono);
-    };
 
     let form = {
       nombreDestino:nombreDestino,
@@ -69,7 +56,7 @@ const Formulario = () => {
     }
   
     return (
-      <div id='contenedor' className='w-1/2 mx-auto my-12' >
+      <div id='contenedor' className='w-1/2 mx-auto my-12 max-sm:w-full max-sm:px-10' >
         <div className="title mb-4">
           <h1 className='font-bold text-xl'>Datos de a quien va dirigido</h1>
           <p>En esta sección ingresa los datos de la persona a quien va dirigido el certificado de honorabilidad</p>
@@ -77,17 +64,17 @@ const Formulario = () => {
         
         <div id="firstForm" className="grid grid-cols-2 grid-rows-2 mb-7 gap-4 max-sm:grid-cols-1">
           <section>
-            <label htmlFor="NombreDestino" className='font-bold'>Nombres y Apellidos</label><br />
-            <input className='border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="text" name="NombreDestino" id="NombreDestino" value={nombreDestino} onChange={handleNombreDestinoChange} />
+            <label htmlFor="NombreDestino" className='text-sm'>Nombres y Apellidos</label><br />
+            <input className='text-sm border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="text" name="NombreDestino" id="NombreDestino" value={nombreDestino} onChange={handleNombreDestinoChange} />
           </section>
           <section>
-            <label htmlFor="CedulaDestino" className='font-bold'>Cédula de identidad</label><br />
-            <input className='border border-gray-400 px-1 py-2 rounded-md w-full mt-2 max-sm:w-4/5' type="text" name="CedulaDestino" id="CedulaDestino" value={cedulaDestino} onChange={handleCedulaDestinoChange}/>
+            <label htmlFor="CedulaDestino" className='text-sm'>Cédula de identidad</label><br />
+            <input className='text-sm border border-gray-400 px-1 py-2 rounded-md w-full mt-2 max-sm:w-4/5' type="number" name="CedulaDestino" id="CedulaDestino" value={cedulaDestino} onChange={handleCedulaDestinoChange}/>
 
           </section>
           <section>
-            <label htmlFor="yearsDestino" className='font-bold'>Años que se llevan conociendo</label><br />
-            <input className='border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="text" name="yearsDestino" id="yearsDestino" value={yearsDestino} onChange={handleYearsDestinoChange} />
+            <label htmlFor="yearsDestino" className='text-sm'>Años que se llevan conociendo</label><br />
+            <input className='text-sm border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="number" name="yearsDestino" id="yearsDestino" value={yearsDestino} onChange={handleYearsDestinoChange} />
           </section>
         </div>
 
@@ -99,33 +86,32 @@ const Formulario = () => {
 
       <div id="secondForm" className="grid grid-cols-2 grid-rows-3 gap-4 max-sm:grid-cols-1">
         <section>
-          <label htmlFor="NombreFirma" className='font-bold'>Nombres y Apellidos</label><br />
-          <input className='border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="text" name="NombreFirma" id="NombreFirma" value={nombreFirma} onChange={handleNombreFirmaChange} />
+          <label htmlFor="NombreFirma" className='text-sm'>Nombres y Apellidos</label><br />
+          <input className='text-sm border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="text" name="NombreFirma" id="NombreFirma" value={nombreFirma} onChange={handleNombreFirmaChange} />
         </section>
         <section>
-        <label htmlFor="CedulaFirma" className='font-bold'>Cédula de identidad</label><br />
-          <input className='border border-gray-400 px-1 py-2 rounded-md w-full mt-2 max-sm:w-4/5' type="text" name="CedulaFirma" id="CedulaFirma" value={cedulaFirma} onChange={handleCedulaFirmaChange}/>
+        <label htmlFor="CedulaFirma" className='text-sm'>Cédula de identidad</label><br />
+          <input className='text-sm border border-gray-400 px-1 py-2 rounded-md w-full mt-2 max-sm:w-4/5' type="number" name="CedulaFirma" id="CedulaFirma" value={cedulaFirma} onChange={handleCedulaFirmaChange}/>
         </section>
         <section>
-          <label htmlFor="Empresa" className='font-bold'>Empresa</label><br />
-          <input className='border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="text" name="Empresa" id="Empresa" value={empresa} onChange={handleEmpresaChange} />
+          <label htmlFor="Empresa" className='text-sm'>Empresa</label><br />
+          <input className='text-sm border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="text" name="Empresa" id="Empresa" value={empresa} onChange={handleEmpresaChange} />
         </section>
         <section>
-        <label htmlFor="Cargo" className='font-bold'>Cargo</label><br />
-          <input className='border border-gray-400 px-1 py-2 rounded-md w-full mt-2 max-sm:w-4/5' type="text" name="Cargo" id="Cargo" value={cargo} 
+        <label htmlFor="Cargo" className='text-sm'>Cargo</label><br />
+          <input className='text-sm border border-gray-400 px-1 py-2 rounded-md w-full mt-2 max-sm:w-4/5' type="text" name="Cargo" id="Cargo" value={cargo} 
           onChange={handleCargoChange}/>
         </section>
         <section>
-        <label htmlFor="Telefono" className='font-bold'>Teléfono</label><br />
-          <input className='border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="number" name="Telefono" id="Telefono" value={telefono}  onChange={handleTelefonoChange}/>
+        <label htmlFor="Telefono" className='text-sm'>Teléfono</label><br />
+          <input className='text-sm border border-gray-400 px-1 py-2 rounded-md w-4/5 mt-2' type="number" name="Telefono" id="Telefono" value={telefono}  onChange={handleTelefonoChange}/>
         </section>
       </div>
 
-      <div className='bg-emerald-500 w-100 h-80 text-center pt-10 my-10'>
-        &nbsp;
-        Publicidad
+      <div className='my-6 mx-auto flex items-center' style={{backgroundColor:'#F3F4F6',width:'300px',height:'250px'}}>
+        <AdsComponent dataAdSlot='1726104819' />
       </div>
-      <Link to="/previsualizar" state={form}>
+      <Link to="generar-certificado-honorabilidad/previsualizar" state={form}>
       <button className='bg-blue-600 text-white py-2 px-4 rounded w-full mx-auto font-medium'>Generar Certificado</button>
         </Link>
       </div>

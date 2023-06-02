@@ -1,7 +1,23 @@
 import { useLocation , Link} from "react-router-dom";
 import html2pdf from 'html2pdf.js';
+import React, {useEffect } from 'react'
+import AdsComponent from './AdsComponent';
+
 
 const Previsualizar = (props) => {
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src =
+    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4201128940872811";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const plantillaCertificado = `<div id="certificado" style="width: 700px;padding: 30px;">
                                 <div style="text-align:right">%%FECHA_ACTUAL%%</div>
                                 <p style="text-align:center;font-weight:bold;font-size:32px;margin-top:12px">CERTIFICADO DE HONORABILIDAD</p>
@@ -122,9 +138,8 @@ const Previsualizar = (props) => {
           </div>
         </div>        
       <div id="contenedor" className='w-1/2 mx-auto my-12'>
-        <div className='bg-emerald-500 w-100 h-80 text-center pt-10 my-10'>
-          &nbsp;
-          Publicidad
+        <div className='my-6 mx-auto flex items-center' style={{backgroundColor:'#F3F4F6',width:'300px',height:'250px'}}>
+        <AdsComponent dataAdSlot='1726104819' />
         </div>
 
         <div className="flex flex-col items-center">
