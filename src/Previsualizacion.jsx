@@ -1,6 +1,6 @@
 import { useLocation , Link} from "react-router-dom";
 import html2pdf from 'html2pdf.js';
-import React, {useEffect } from 'react'
+import React from 'react'
 import AdsComponent from './AdsComponent';
 
 
