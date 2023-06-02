@@ -5,19 +5,6 @@ import AdsComponent from './AdsComponent';
 
 
 const Previsualizar = (props) => {
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src =
-    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4201128940872811";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   const plantillaCertificado = `<div id="certificado" style="width: 700px;padding: 30px;">
                                 <div style="text-align:right">%%FECHA_ACTUAL%%</div>
                                 <p style="text-align:center;font-weight:bold;font-size:32px;margin-top:12px">CERTIFICADO DE HONORABILIDAD</p>
